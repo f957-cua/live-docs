@@ -1,0 +1,18 @@
+{
+  "github.copilot.enable": {
+    "*": true, // Enable Copilot for all languages
+    "plaintext": false // Disable Copilot for plain text files
+  },
+  "github.copilot.editor.enableAutoCompletions": true, // Enable inline suggestions
+  "github.copilot.renameSuggestions.triggerAutomatically": true, // Automatically trigger rename suggestions
+  "github.copilot.advanced": {
+    "debug": false, // Disable debug mode
+    "telemetry": true // Enable telemetry
+  },
+  "github.copilot.suggestionDelay": 150, // Delay in milliseconds before suggestions appear
+  "github.copilot.suggestionDisplay": "inline", // Display suggestions inline
+  "github.copilot.suggestionTrigger": "always", // Always trigger suggestions
+  "github.copilot.suggestionMode": "accept", // Accept suggestions with Tab key
+  "github.copilot.suggestionLimit": 5,
+  "cSpell.words": ["liveblock", "liveblocks"] // Limit the number of suggestions to 5
+}
