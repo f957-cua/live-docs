@@ -24,7 +24,7 @@ function Provider({ children }: { children: ReactNode }) {
         const roomUsers = await getDocumentUsers({
           text,
           roomId,
-          currentUser: clerkUser?.emailAdresses[0].emailAddress!,
+          currentUser: clerkUser?.emailAddresses[0].emailAddress!,
         });
 
         return roomUsers;
