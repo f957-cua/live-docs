@@ -18,6 +18,8 @@ import { Input } from './ui/input';
 import { User } from 'lucide-react';
 import UserTypeSelector from './UserTypeSelector';
 import Collaborator from './Collaborator';
+import { updateDocumentAccess } from '@/lib/actions/room.actions';
+import { type } from 'os';
 
 const ShareModal = ({
   roomId,
@@ -31,9 +33,20 @@ const ShareModal = ({
   const [loading, setLoading] = useState(false);
 
   const [email, setEmail] = useState('');
-  const [UserType, setUserType] = useState<UserType>('viewer');
+  const [userType, setUserType] = useState<UserType>('viewer');
 
-  const shareDocumentHandler = async () => {};
+  const shareDocumentHandler = async () => {
+    setLoading(true);
+
+    await updateDocumentAccess({
+      roomId,
+      email,
+      userType: userType as UserType,
+      updatedBy: user.info,
+    });
+
+    setLoading(false);
+  };
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -69,7 +82,7 @@ const ShareModal = ({
                 onChange={(e) => setEmail(e.target.value)}
                 className="share-input"
               />
-              <UserTypeSelector userType={UserType} setUserType={setUserType} />
+              <UserTypeSelector userType={userType} setUserType={setUserType} />
             </div>
             <Button
               type="submit"
